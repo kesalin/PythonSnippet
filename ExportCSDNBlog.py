@@ -35,7 +35,6 @@ enableLog = True
 # 尝试获取资源次数
 gRetryCount = 5
 header = {"User-Agent": "Mozilla-Firefox5.0"}
-namespace = "{http://www.w3.org/1999/xhtml}"
 
 def log(str):
     if enableLog:
@@ -87,9 +86,6 @@ def htmlContent2String(contentStr):
     resultContent = patternHref.sub(r'[\4](\2)', resultContent)
     resultContent = re.sub(patternRemoveHtml, r'', resultContent)
     resultContent = decodeHtmlSpecialCharacter(resultContent)
-    resultContent = resultContent.replace("\n\n", "\n")
-    resultContent = resultContent.replace("\n\n", "\n")
-    resultContent = resultContent.replace("\n\n", "\n")
     return resultContent
 
 def exportToMarkdown(exportDir, postdate, categories, title, content):
