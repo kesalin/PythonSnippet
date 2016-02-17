@@ -9,8 +9,9 @@ def process_file(path):
     if (path.endswith('.java')):
         handle = open(path, 'r')
         for eachLine in handle:
-            #print eachLine
-            total += 1
+            if len(eachLine) > 1:
+                #print len(eachLine), ' > ', eachLine,
+                total += 1
         handle.close()
         print path, ',', total, 'lines.'
     return total
@@ -40,5 +41,5 @@ def process(path):
     print '>>> total lines :', total, '.'
     return total
 
-#print process('/home/kesalin/test/test/AccountPreference.java')
+#process('/home/kesalin/test/test/AccountPreference.java')
 process('/home/kesalin/test/Settings')
