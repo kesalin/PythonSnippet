@@ -11,7 +11,9 @@ def process_file(path):
         for eachLine in handle:
             if len(eachLine) > 1:
                 #print len(eachLine), ' > ', eachLine,
-                total += 1
+                eachLine = eachLine.lstrip()
+                if (eachLine.startswith("//") == False):
+                    total += 1
         handle.close()
         print path, ',', total, 'lines.'
     return total
